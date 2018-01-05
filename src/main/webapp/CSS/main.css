@@ -1,0 +1,16 @@
+body {
+    background-image: url("/img/background.jpg");
+    background-repeat: repeat;
+    max-width: 750em;
+}
+.container{
+    margin-top: 195px;
+    display: block;
+    max-width: 750px;
+    padding: 60px;
+    background-color: #fff;
+}
+.btn{
+    background-color:#AA7BC3!important;
+    opacity: 0.6;
+}

@@ -4,9 +4,12 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
-    <div class="container">
+ <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<div class="row">
+    <div class="container md-col-6">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
@@ -20,5 +23,6 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+</div>
 </body>
 </html>

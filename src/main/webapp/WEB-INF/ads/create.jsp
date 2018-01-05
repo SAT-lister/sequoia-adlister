@@ -20,6 +20,7 @@
                     <option value="cakes">Cake</option>
                     <option value="ice-cream">Ice Cream</option>
                     <option value="pie">Pie</option>
+                    <option value="other">Other</option>
                 </select>
             </div>
             <div class="form-group">

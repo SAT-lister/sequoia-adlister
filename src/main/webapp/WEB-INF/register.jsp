@@ -17,7 +17,7 @@
             </div>
             <c:if test="${sessionScope.nameExists != null}">
                 <div class="alert alert-danger">
-                    <strong>That username already exists!</strong>
+                    <strong>Bruh, That username already exists!</strong>
                 </div>
             </c:if>
             <div class="form-group">

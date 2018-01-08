@@ -73,4 +73,18 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+
+//    @Override
+//    public Search<Ad> search() {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = connection.prepareStatement("SELECT * FROM ads");
+//            ResultSet rs = stmt.executeQuery();
+//            return createAdsFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving ads.", e);
+//        }
+//    }
+
 }

@@ -15,7 +15,7 @@
                 <label for="username">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
-            <c:if test="${sessionScope.existingUser != null}">
+            <c:if test="${sessionScope.nameExists != null}">
                 <div class="alert alert-danger">
                     <strong>That username already exists!</strong>
                 </div>

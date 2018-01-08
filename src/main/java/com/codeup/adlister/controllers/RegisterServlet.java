@@ -32,6 +32,7 @@ public class RegisterServlet extends HttpServlet {
 
         if (inputHasErrors) {
             doGet(request, response);
+            return;
         } else {
 
             if (existingUser != null) {

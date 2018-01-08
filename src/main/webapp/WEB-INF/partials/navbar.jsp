@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">DessertLister</a>
+            <a class="navbar-brand" href="/ads/index">DessertLister</a>
             <a class="navbar-brand" href="/register">Register</a>
             <a class="navbar-brand" href="/ads/create">Create a Dessert</a>
         </div>

@@ -37,3 +37,11 @@ CREATE TABLE IF NOT EXISTS post_categories (
     FOREIGN KEY (ad_id) REFERENCES ads (id),
     FOREIGN KEY (category_id) REFERENCES categories (id)
 );
+
+SELECT
+    a.title,
+    categories.category
+FROM ads a
+    JOIN post_categories pc
+        ON a.id = pc.ad_id
+    JOIN categories ON pc.category_id = categories.id;

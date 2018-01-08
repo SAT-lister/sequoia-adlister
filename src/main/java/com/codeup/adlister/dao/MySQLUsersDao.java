@@ -8,13 +8,13 @@ import java.sql.*;
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
-    public MySQLUsersDao(Config config) {
+    public MySQLUsersDao() {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                Config.url,
+                Config.user,
+                Config.password
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -24,9 +24,9 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
-        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
+        String sql = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
-            PreparedStatement stmt = connection.prepareStatement(query);
+            PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, username);
             return extractUser(stmt.executeQuery());
         } catch (SQLException e) {

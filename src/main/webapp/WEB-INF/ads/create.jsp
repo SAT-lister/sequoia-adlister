@@ -10,8 +10,6 @@
  <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="row">
     <div class="container md-col-6">
-        <h1>Create a new Ad</h1>
-    <div class="container">
         <h1>Create a new Dessert</h1>
         <form action="/ads/create" method="post">
             <div class="form-group">
@@ -20,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label for="category">Category</label>
-                <select id="category" name="category" class="form-control" type="text">
+                <select id="category" name="categories" class="form-control" type="text">
                     <option value="cookies">Cookie</option>
                     <option value="cakes">Cake</option>
                     <option value="ice-cream">Ice Cream</option>
@@ -34,7 +32,8 @@
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
+        </div>
     </div>
-</div>
+    </div>
 </body>
 </html>

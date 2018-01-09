@@ -26,6 +26,7 @@ public class RegisterServlet extends HttpServlet {
 
         User existingUser = DaoFactory.getUsersDao().findByUsername(username);
         boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
+        boolean wrongEmail = (!email.contains("@"));
 
 
 
@@ -47,11 +48,22 @@ public class RegisterServlet extends HttpServlet {
 
             }
 
+<<<<<<< HEAD
+=======
+            if (wrongEmail) {
+                request.getSession().setAttribute("wrongEmail", true);
+
+            }
+
+>>>>>>> 09b61f34ecda41e3f8a24a17e747b73f35dd04fa
 
             if (passwordsNotMatch) {
                 request.getSession().setAttribute("passwordsNotMatch", true);
-                response.sendRedirect("/register");
 
+            }
+
+            if (existingUser != null || wrongEmail || passwordsNotMatch) {
+                response.sendRedirect("/register");
                 return;
             }
         }

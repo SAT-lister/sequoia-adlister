@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.codeup.adlister.dao.Config.password;
+
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,12 +25,16 @@ public class RegisterServlet extends HttpServlet {
         String passwordConfirmation = request.getParameter("confirm_password");
 
         User existingUser = DaoFactory.getUsersDao().findByUsername(username);
+        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
+
+
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+            || passwordConfirmation.isEmpty();
+
 
         if (inputHasErrors) {
             doGet(request, response);
@@ -36,7 +42,16 @@ public class RegisterServlet extends HttpServlet {
         } else {
 
             if (existingUser != null) {
-                request.getSession().setAttribute("nameExists", existingUser);
+
+                request.getSession().setAttribute("existingUser", existingUser);
+
+            }
+
+            if ()
+
+
+            if (passwordsNotMatch) {
+                request.getSession().setAttribute("passwordsNotMatch", true);
                 response.sendRedirect("/register");
 
                 return;

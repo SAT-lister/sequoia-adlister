@@ -12,11 +12,12 @@
 <div class="container">
     <h1>Here are all the desserts!</h1>
     <br>
-    <div>
-        <h3> Search for ad!</h3>
-        <input type="text">
-        <button>Search!</button>
-    </div>
+    <form action="/search">
+        <div class="form-group col-md-6" >
+            <input type="text" name="search" class="form-control" placeholder="search dessert lister">
+        </div>
+        <button type="submit" class="btn btn-default">Search</button>
+    </form>
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">

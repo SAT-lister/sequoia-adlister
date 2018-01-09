@@ -25,22 +25,45 @@ public class RegisterServlet extends HttpServlet {
         String passwordConfirmation = request.getParameter("confirm_password");
 
         User existingUser = DaoFactory.getUsersDao().findByUsername(username);
+        User existingEmail = DaoFactory.getUsersDao().findByEmail(email);
         boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean wrongEmail = (!email.contains("@"));
+        boolean emptyUsername = username.isEmpty();
+        boolean emptyEmail = email.isEmpty();
+        boolean emptyPassword = password.isEmpty();
+        boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
 
 
 
         // validate input
-        boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || passwordConfirmation.isEmpty();
+        boolean inputHasErrors = emptyUsername
+            || emptyEmail
+            || emptyPassword
+            || emptyPasswordConfirmation;
 
 
-        if (inputHasErrors) {
-            doGet(request, response);
-            return;
-        } else {
+//        if (inputHasErrors) {
+//            doGet(request, response);
+//            return;
+//        } else {
+
+            if (emptyUsername) {
+
+                request.getSession().setAttribute("emptyUsername", emptyUsername);
+
+            }
+
+            if (emptyPassword) {
+
+                request.getSession().setAttribute("emptyPassword", emptyPassword);
+
+            }
+
+            if (emptyPasswordConfirmation) {
+
+                request.getSession().setAttribute("emptyPasswordConfirmation", emptyPasswordConfirmation);
+
+            }
 
             if (existingUser != null) {
 
@@ -48,29 +71,36 @@ public class RegisterServlet extends HttpServlet {
 
             }
 
-            if (wrongEmail) {
-                request.getSession().setAttribute("wrongEmail", true);
+            if (existingEmail != null) {
+
+                request.getSession().setAttribute("existingEmail", existingEmail);
 
             }
 
+            if (emptyEmail) {
+
+                request.getSession().setAttribute("emptyEmail", emptyEmail);
+
+            } else if (wrongEmail) {
+
+                request.getSession().setAttribute("wrongEmail", true);
+
+                }
 
             if (passwordsNotMatch) {
+
                 request.getSession().setAttribute("passwordsNotMatch", true);
 
             }
 
-            if (existingUser != null || wrongEmail || passwordsNotMatch) {
+            if (existingUser != null || wrongEmail || passwordsNotMatch || emptyUsername || emptyEmail || emptyPassword || emptyPasswordConfirmation) {
                 response.sendRedirect("/register");
                 return;
             }
-        }
+//        }
 
         // create and save a new user
         User user = new User(username, email, password);
-
-
-
-
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
     }

@@ -19,33 +19,64 @@
                 <div class="alert alert-danger">
                     <strong>Bruh, That username already exists!</strong>
                 </div>
+                <c:remove var="existingUser" scope="session"/>
+            </c:if>
+            <c:if test="${sessionScope.emptyUsername}">
+                <div class="alert alert-danger">
+                    <strong>Hey, Please input a username!</strong>
+                </div>
+                <c:remove var="emptyUsername" scope="session"/>
             </c:if>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" name="email" class="form-control" type="text">
             </div>
+            <c:if test="${sessionScope.emptyEmail}">
+                <div class="alert alert-danger">
+                    <strong>Hey, Please input an email!</strong>
+                </div>
+                <c:remove var="emptyEmail" scope="session"/>
+            </c:if>
+            <c:if test="${sessionScope.existingEmail != null}">
+                <div class="alert alert-danger">
+                    <strong>Yo, That email already exists!</strong>
+                </div>
+                <c:remove var="existingEmail" scope="session"/>
+            </c:if>
             <c:if test="${sessionScope.wrongEmail}">
                 <div class="alert alert-danger">
                     <strong>Dude, That's not an email!</strong>
                 </div>
+                <c:remove var="wrongEmail" scope="session"/>
             </c:if>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
+            <c:if test="${sessionScope.emptyPassword}">
+                <div class="alert alert-danger">
+                    <strong>Hey, Please input a password!</strong>
+                </div>
+                <c:remove var="emptyPassword" scope="session"/>
+            </c:if>
             <div class="form-group">
                 <label for="confirm_password">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
+            <c:if test="${sessionScope.emptyPasswordConfirmation}">
+                <div class="alert alert-danger">
+                    <strong>Hey, Please input a password!</strong>
+                </div>
+                <c:remove var="emptyPasswordConfirmation" scope="session"/>
+            </c:if>
             <c:if test="${sessionScope.passwordsNotMatch}">
                 <div class="alert alert-danger">
                     <strong>Man, These passwords don't match!</strong>
                 </div>
+                <c:remove var="passwordsNotMatch" scope="session"/>
             </c:if>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
-
-    <script src="../JavaScript/main.js"></script>
 </body>
 </html>

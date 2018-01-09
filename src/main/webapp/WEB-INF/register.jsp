@@ -24,7 +24,7 @@
                 <label for="email">Email</label>
                 <input id="email" name="email" class="form-control" type="text">
             </div>
-            <c:if test="${sessionScope.wrongEmail != null}">
+            <c:if test="${sessionScope.wrongEmail}">
                 <div class="alert alert-danger">
                     <strong>Dude, That's not an email!</strong>
                 </div>
@@ -39,11 +39,13 @@
             </div>
             <c:if test="${sessionScope.passwordsNotMatch}">
                 <div class="alert alert-danger">
-                    <strong>Bruh, These don't match!</strong>
+                    <strong>Man, These passwords don't match!</strong>
                 </div>
             </c:if>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
     </div>
+
+    <script src="../JavaScript/main.js"></script>
 </body>
 </html>

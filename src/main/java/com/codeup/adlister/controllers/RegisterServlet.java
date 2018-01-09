@@ -48,7 +48,6 @@ public class RegisterServlet extends HttpServlet {
 
             }
 
-
             if (passwordsNotMatch) {
                 request.getSession().setAttribute("passwordsNotMatch", true);
 

@@ -68,8 +68,5 @@
         </form>
     </div>
 
-
-    <script src="../JavaScript/main.js"></script>
-
 </body>
 </html>

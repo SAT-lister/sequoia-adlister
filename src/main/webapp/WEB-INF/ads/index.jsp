@@ -12,20 +12,22 @@
 <div class="container">
     <h1>Here are all the desserts!</h1>
     <br>
-    <form action="/search">
-        <div class="form-group col-md-6" >
+    <div class="form-group col-md-4" >
+        <form action="/search">
             <input type="text" name="search" class="form-control" placeholder="search dessert lister">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-    </form>
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
+</div>
+    <div class="container">
+    <div class="col-md-4">
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
             <h6>${ad.category}</h6>
-        </div>
     </c:forEach>
+        </div>
 </div>
 
 </body>

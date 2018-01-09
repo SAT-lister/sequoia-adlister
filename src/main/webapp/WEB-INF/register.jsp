@@ -5,6 +5,28 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+
+    <script type="text/javascript">
+        document.getElementById("username").value = getSavedValue("username");    // set the value to this input
+        document.getElementById("email").value = getSavedValue("email");   // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it .
+            var val = e.value; // get the value.
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
+        }
+
+        //get the saved value function - return the value of "v" from localStorage.
+        function getSavedValue  (v){
+            if (localStorage.getItem(v) === null) {
+                return " ";// You can change this to your defualt value.
+            }
+            return localStorage.getItem(v);
+        }
+    </script>
+
 </head>
 <body>
     <jsp:include page="partials/navbar.jsp" />
@@ -13,7 +35,7 @@
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" onkeyup="saveValue(this);">
             </div>
             <c:if test="${sessionScope.existingUser != null}">
                 <div class="alert alert-danger">
@@ -22,7 +44,7 @@
             </c:if>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="text" onkeyup="saveValue(this);">
             </div>
             <c:if test="${sessionScope.wrongEmail}">
                 <div class="alert alert-danger">
@@ -46,6 +68,8 @@
         </form>
     </div>
 
+
     <script src="../JavaScript/main.js"></script>
+
 </body>
 </html>

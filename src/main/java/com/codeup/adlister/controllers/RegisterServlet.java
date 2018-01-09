@@ -49,6 +49,7 @@ public class RegisterServlet extends HttpServlet {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             if (wrongEmail) {
                 request.getSession().setAttribute("wrongEmail", true);
@@ -56,6 +57,8 @@ public class RegisterServlet extends HttpServlet {
             }
 
 >>>>>>> 09b61f34ecda41e3f8a24a17e747b73f35dd04fa
+=======
+>>>>>>> efcb28cb57c17a45d5f3854e7d44deb55278464f
 
             if (passwordsNotMatch) {
                 request.getSession().setAttribute("passwordsNotMatch", true);

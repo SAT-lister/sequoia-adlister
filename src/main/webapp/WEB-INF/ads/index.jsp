@@ -21,6 +21,7 @@
 </div>
     <div class="container">
     <div class="col-md-4">
+
     <c:forEach var="ad" items="${ads}">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>

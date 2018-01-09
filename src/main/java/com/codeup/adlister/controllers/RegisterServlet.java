@@ -56,8 +56,11 @@ public class RegisterServlet extends HttpServlet {
 
             if (passwordsNotMatch) {
                 request.getSession().setAttribute("passwordsNotMatch", true);
-                response.sendRedirect("/register");
 
+            }
+
+            if (existingUser != null || wrongEmail || passwordsNotMatch) {
+                response.sendRedirect("/register");
                 return;
             }
         }

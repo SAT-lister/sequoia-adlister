@@ -72,7 +72,6 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-
     @Override
     public List<Ad> search(String searchTerm){
         String selectQuery = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
@@ -87,4 +86,34 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
+    public Ad getAd(long id) {
+        String sql = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+
+            createAdsFromResults(rs);
+
+            return extractAd(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding profile", e);
+        }
+    }
+
+    public List<Ad> getAds(long id) {
+        String sql = "SELECT * FROM ads WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding profile", e);
+        }
+    }
 }
+
+

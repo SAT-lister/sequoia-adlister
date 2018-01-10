@@ -2,7 +2,9 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.Ads;
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.dao.Users;
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,16 +23,18 @@ public class ViewProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
+        User user = (User) request.getSession().getAttribute("user");
+        long id = user.getId();
         // get a list of ads that belong to the logged in user
         // 1. get the logged in user's id
         // 2. Call a method on the ads dao to get the ads for a given user id
         String ad = request.getParameter( "ad" );
         Ads adFactory = DaoFactory.getAdsDao();
-        List<Ad> userAds = adFactory.all();
+        List<Ad> userAds = adFactory.getAds(id);
         // 3. pass those ads to the jsp
         request.getSession().setAttribute("ads", userAds);
 
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
-
     }
 }

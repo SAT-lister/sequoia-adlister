@@ -5,6 +5,8 @@ import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 
+import static java.sql.ResultSet.TYPE_SCROLL_SENSITIVE;
+
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
@@ -76,4 +78,18 @@ public class MySQLUsersDao implements Users {
         );
     }
 
+    public boolean updateUser(String username, String email, String password, long userId) throws SQLException {
+       try {
+           String query = "update users set username = ?, email = ?, password = ? where id = ?";
+           PreparedStatement preparedStmt = connection.prepareStatement(query);
+           preparedStmt.setString(1, username);
+           preparedStmt.setString(2, email);
+           preparedStmt.setString(3, password);
+           preparedStmt.setLong(4, userId);
+           preparedStmt.executeUpdate();
+           return true;
+       } catch (SQLException e) {
+           throw new RuntimeException("Error updating user information");
+       }
+    }
 }

@@ -21,7 +21,7 @@
         //get the saved value function - return the value of "v" from localStorage.
         function getSavedValue  (v){
             if (localStorage.getItem(v) === null) {
-                return " ";// You can change this to your defualt value.
+                return " ";// You can change this to your default value.
             }
             return localStorage.getItem(v);
         }

@@ -16,7 +16,6 @@ if (username == null) username = "";
 // checking to see if this form has been submitted
     if (request.getMethod().equals("POST"))
 
-
 %>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">

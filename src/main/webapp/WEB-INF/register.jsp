@@ -6,36 +6,25 @@
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
 
-    <script type="text/javascript">
-        document.getElementById("username").value = getSavedValue("username");    // set the value to this input
-        document.getElementById("email").value = getSavedValue("email");   // set the value to this input
-        /* Here you can add more inputs to set value. if it's saved */
-
-        //Save the value function - save it to localStorage as (ID, VALUE)
-        function saveValue(e){
-            var id = e.id;  // get the sender's id to save it .
-            var val = e.value; // get the value.
-            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
-        }
-
-        //get the saved value function - return the value of "v" from localStorage.
-        function getSavedValue  (v){
-            if (localStorage.getItem(v) === null) {
-                return " ";// You can change this to your defualt value.
-            }
-            return localStorage.getItem(v);
-        }
-    </script>
-
 </head>
 <body>
+<% String username = request.getParameter("username");
+if (username == null) username = "";
+
+    String email = request.getParameter("email");
+    if (email == null) email = "";
+// checking to see if this form has been submitted
+    if (request.getMethod().equals("POST"))
+
+
+%>
     <jsp:include page="partials/navbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" onkeyup="saveValue(this);">
+                <input id="username" name="username" class="form-control" type="text" value="<%=username%>" />
             </div>
             <c:if test="${sessionScope.existingUser != null}">
                 <div class="alert alert-danger">
@@ -51,7 +40,7 @@
             </c:if>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text" onkeyup="saveValue(this);">
+                <input id="email" name="email" class="form-control" type="text" value="<%=email%>">
             </div>
             <c:if test="${sessionScope.emptyEmail}">
                 <div class="alert alert-danger">

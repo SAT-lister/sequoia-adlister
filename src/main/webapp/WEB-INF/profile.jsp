@@ -3,6 +3,8 @@
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<% List ads = (List)session.getAttribute("ads");
+    request.setAttribute("ads",ads);%>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
@@ -14,11 +16,11 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <h2>Here are your current ads.</h2>
-        <c:forEach items="${ads}" var="ad">
-            <tr>
-                <td>Ad Title: <C:out value="${ad.title}"/></td>
-                <td>Ad Description: <C:out value="${ad.description}"/></td>
-                <td>Ad Categories: <C:out value="${ad.category}"/></td>
+        <c:forEach var="ad" items="${ads}">
+            <br>
+            <td>Ad Title: ${ad.title}</td></br>
+            <td>Ad Description: ${ad.description}</td></br>
+            <td>Ad Categories: ${ad.category}</td></br>
             </tr>
         </c:forEach>
     </div>

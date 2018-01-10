@@ -94,7 +94,6 @@ public class RegisterServlet extends HttpServlet {
                 request.getSession().setAttribute("email", "");
 
                 }
-//                response.sendRedirect("/register");
                 request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
 
 

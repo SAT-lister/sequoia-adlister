@@ -13,5 +13,8 @@ public interface Ads {
 
     List<Ad> search(String searchTerm);
 
+    Ad getAd(long id);
+
+    List<Ad> getAds(long id);
 }
 

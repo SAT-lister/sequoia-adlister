@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-collapse">
+        <div class="collapse navbar-collapse">
             <div class="navbar-header">
                 <a class="navbar-brand" href="/ads/index">DessertLister</a>
                     <c:if test="${sessionScope.user != null}">

@@ -5,8 +5,6 @@ import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
 
-import static java.sql.ResultSet.TYPE_SCROLL_SENSITIVE;
-
 public class MySQLUsersDao implements Users {
     private Connection connection;
 
@@ -64,6 +62,11 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
+    }
+
+    @Override
+    public User updateUser(String username) {
+        return null;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {

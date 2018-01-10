@@ -20,7 +20,7 @@
                 <label for="category">Category</label>
                 <select id="category" name="categories" class="form-control" type="text">
                     <option value="cookies">Cookie</option>
-                    <option value="cakes">Cake</option>
+                    <option value="cake">Cake</option>
                     <option value="ice-cream">Ice Cream</option>
                     <option value="pie">Pie</option>
                     <option value="other">Other</option>

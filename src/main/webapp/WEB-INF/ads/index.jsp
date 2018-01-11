@@ -22,12 +22,24 @@
     <div class="container">
     <div class="col-md-4">
     <c:forEach var="ad" items="${ads}">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <h6>${ad.category}</h6>
+        <a href="/ads/view?id=${ad.id}"><h2>${ad.title}</h2></a>
+        <p>${ad.description}</p>
+        <h6>${ad.category}</h6>
     </c:forEach>
-        </div>
+    </div>
 </div>
-
+<script src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script type="text/javascript">
+    var fsClient = filestack.init('AwjEmOSsTKuJMBQBVgE7fz');
+    function openPicker() {
+        fsClient.pick({
+            fromSources:["local_file_system","imagesearch","facebook","instagram","dropbox"],
+            accept:["image/*"]
+        }).then(function(response) {
+            // declare this function to handle response
+            handleFilestack(response);
+        });
+    }
+</script>
 </body>
 </html>

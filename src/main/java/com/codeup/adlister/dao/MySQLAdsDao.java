@@ -87,17 +87,15 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
     public Ad getAd(long id) {
-        String sql = "SELECT * FROM ads WHERE user_id = ?";
+        String sql = "SELECT * FROM ads WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-
-            createAdsFromResults(rs);
-
-            return extractAd(stmt.executeQuery());
+            return extractAd(rs);
         } catch (SQLException e) {
             throw new RuntimeException("Error finding profile", e);
         }

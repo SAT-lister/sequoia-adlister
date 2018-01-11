@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.codeup.adlister.dao.Config.password;
-
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,10 +32,10 @@ public class RegisterServlet extends HttpServlet {
         boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
 
         // validate input
-        boolean inputHasErrors = emptyUsername
-            || emptyEmail
-            || emptyPassword
-            || emptyPasswordConfirmation;
+//        boolean inputHasErrors = emptyUsername
+//            || emptyEmail
+//            || emptyPassword
+//            || emptyPasswordConfirmation;
 
             if (emptyUsername) {
 

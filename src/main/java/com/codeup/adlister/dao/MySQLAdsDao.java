@@ -94,9 +94,7 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-
             createAdsFromResults(rs);
-
             return extractAd(stmt.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("Error finding profile", e);
@@ -114,6 +112,47 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding profile", e);
         }
     }
+
+
+
+    @Override
+    public void deleteAd(Ad ad) {
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET is_deleted = ? WHERE id = ?");
+
+
+            stmt.setBoolean(1, true);
+            stmt.setLong(2, ad.getId());
+
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating Profile information", e);
+        }
+
+    }
+
+
+
+//    @Override
+//    public void updateAd(Ad ad) {
+//        try{
+//            PreparedStatement stmt = connection.prepareStatement("UPDATE ads SET title=?, description=? WHERE id=?");
+//
+//
+//            stmt.setString(1, ad.getTitle());
+//            stmt.setString(2, ad.getDescription());
+//            stmt.setLong(3, ad.getId());
+//
+//            stmt.executeUpdate();
+//
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error updating Ad information", e);
+//        }
+//    }
+
+
+
 }
 
 

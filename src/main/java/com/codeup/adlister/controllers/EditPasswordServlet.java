@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
-@WebServlet(name = "controllers.EditProfileServlet", urlPatterns = "/editProfile")
-public class EditProfileServlet extends HttpServlet {
+@WebServlet(name = "controllers.EditPasswordServlet", urlPatterns = "/editPassword")
+public class EditPasswordServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         if (request.getSession().getAttribute("user") == null) {
@@ -57,7 +56,7 @@ public class EditProfileServlet extends HttpServlet {
         response.sendRedirect("/profile");
 
 
-        }
+    }
 
 
 }

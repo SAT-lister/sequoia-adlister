@@ -12,9 +12,9 @@ public class MySQLUsersDao implements Users {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                Config.url,
-                Config.user,
-                Config.password
+                    Config.url,
+                    Config.user,
+                    Config.password
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -64,35 +64,40 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    @Override
-    public User updateUser(String username) {
+
+    public User updateUser(String username, String email, String password, Long user_id) {
         return null;
     }
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
     }
 
-    public boolean updateUser(String username, String email, String password, long userId) throws SQLException {
-       try {
-           String query = "update users set username = ?, email = ?, password = ? where id = ?";
-           PreparedStatement preparedStmt = connection.prepareStatement(query);
-           preparedStmt.setString(1, username);
-           preparedStmt.setString(2, email);
-           preparedStmt.setString(3, password);
-           preparedStmt.setLong(4, userId);
-           preparedStmt.executeUpdate();
-           return true;
-       } catch (SQLException e) {
-           throw new RuntimeException("Error updating user information");
-       }
+    @Override
+    public User updateUser(String username, String email, String password, long userId) throws SQLException {
+        try {
+
+            String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.setString(1, username);
+            preparedStmt.setString(2, email);
+            preparedStmt.setString(3, password);
+            preparedStmt.setLong(4, userId);
+            preparedStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user information");
+        }
+
+        return null;
     }
+
 }

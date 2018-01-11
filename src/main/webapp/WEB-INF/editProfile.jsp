@@ -10,11 +10,12 @@
         <!-- Form Name -->
         <legend>Edit Profile</legend>
 
+        <input id="id" type="hidden" name="id" value="${user.id}">
         <!-- Username -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="username">Username</label>
             <div class="col-md-4">
-                <input id="username" name="username" type="text" placeholder="username" class="form-control input-md">
+                <input id="username" name="username" type="text" placeholder="username" class="form-control input-md" value="${user.username}">
             </div>
         </div>
 
@@ -24,29 +25,29 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="email">Email</label>
             <div class="col-md-4">
-                <input id="email" name="email" type="text" placeholder="email" class="form-control input-md">
+                <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" value="${user.email}">
             </div>
         </div>
 
         <br>
 
-        <!-- Password -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="password">Password</label>
-            <div class="col-md-4">
-                <input id="password" name="password" type="password" placeholder="password" class="form-control input-md">
-            </div>
-        </div>
+        <%--<!-- Password -->--%>
+        <%--<div class="form-group">--%>
+            <%--<label class="col-md-4 control-label" for="password">Password</label>--%>
+            <%--<div class="col-md-4">--%>
+                <%--<input id="password" name="password" type="password" placeholder="password" class="form-control input-md">--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
-        <br>
+        <%--<br>--%>
 
-        <!-- Confirm Password -->
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="password-confirmation">Confirm Password</label>
-            <div class="col-md-4">
-                <input id="password-confirmation" name="password-confirmation" type="password" placeholder="confirm password" class="form-control input-md">
-            </div>
-        </div>
+        <%--<!-- Confirm Password -->--%>
+        <%--<div class="form-group">--%>
+            <%--<label class="col-md-4 control-label" for="password-confirmation">Confirm Password</label>--%>
+            <%--<div class="col-md-4">--%>
+                <%--<input id="password-confirmation" name="password-confirmation" type="password" placeholder="confirm password" class="form-control input-md">--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
         <br>
 

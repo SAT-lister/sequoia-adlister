@@ -23,7 +23,7 @@ public class EditProfileServlet extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
         User user = DaoFactory.getUsersDao().findById(id);
         request.setAttribute("user", user);
-        request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/users/editProfile.jsp").forward(request, response);
 
     }
 
@@ -42,7 +42,7 @@ public class EditProfileServlet extends HttpServlet {
             User updatedUser = DaoFactory.getUsersDao().findByUsername(username);
             if (updatedUser != null) {
                 request.getSession().setAttribute("existingUser", updatedUser);
-                request.getRequestDispatcher("/WEB-INF/editProfile.jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/users/editProfile.jsp").forward(request, response);
                 return;
             }
 

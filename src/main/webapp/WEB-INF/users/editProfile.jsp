@@ -2,8 +2,15 @@
 <html>
 <head>
     <title>Edit Profile</title>
+    <jsp:include page="../partials/head.jsp">
+        <jsp:param name="title" value="Edit Profile!" />
+    </jsp:include>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
+<jsp:include page="../partials/navbar.jsp" />
+
+<div class="container">
 <form action="/editProfile" method="POST" class="form-horizontal">
     <fieldset>
 
@@ -31,26 +38,6 @@
 
         <br>
 
-        <%--<!-- Password -->--%>
-        <%--<div class="form-group">--%>
-            <%--<label class="col-md-4 control-label" for="password">Password</label>--%>
-            <%--<div class="col-md-4">--%>
-                <%--<input id="password" name="password" type="password" placeholder="password" class="form-control input-md">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-        <%--<br>--%>
-
-        <%--<!-- Confirm Password -->--%>
-        <%--<div class="form-group">--%>
-            <%--<label class="col-md-4 control-label" for="password-confirmation">Confirm Password</label>--%>
-            <%--<div class="col-md-4">--%>
-                <%--<input id="password-confirmation" name="password-confirmation" type="password" placeholder="confirm password" class="form-control input-md">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-        <br>
-
         <!-- Upload Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="upload-button">Upload</label>
@@ -73,6 +60,6 @@
 </form>
 
 
-
+</div>
 </body>
 </html>

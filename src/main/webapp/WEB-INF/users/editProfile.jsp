@@ -2,8 +2,15 @@
 <html>
 <head>
     <title>Edit Profile</title>
+    <jsp:include page="../partials/head.jsp">
+        <jsp:param name="title" value="Edit Profile!" />
+    </jsp:include>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
+<jsp:include page="../partials/navbar.jsp" />
+
+<div class="container">
 <form action="/editProfile" method="POST" class="form-horizontal">
     <fieldset>
 
@@ -53,6 +60,6 @@
 </form>
 
 
-
+</div>
 </body>
 </html>

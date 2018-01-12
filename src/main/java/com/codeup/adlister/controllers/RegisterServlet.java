@@ -24,10 +24,10 @@ public class RegisterServlet extends HttpServlet {
 
         User existingUser = DaoFactory.getUsersDao().findByUsername(username);
         User existingEmail = DaoFactory.getUsersDao().findByEmail(email);
-        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean wrongEmail = (!email.contains("@"));
         boolean emptyUsername = username.isEmpty();
         boolean emptyEmail = email.isEmpty();
+        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean emptyPassword = password.isEmpty();
         boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
 

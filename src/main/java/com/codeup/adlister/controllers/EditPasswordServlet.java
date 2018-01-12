@@ -39,6 +39,27 @@ public class EditPasswordServlet extends HttpServlet {
         request.getSession().setAttribute("user", user);
         response.sendRedirect("/profile");
 
+        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
+        boolean emptyPassword = password.isEmpty();
+        boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
+
+        if (emptyPassword) {
+
+            request.getSession().setAttribute("emptyPassword", emptyPassword);
+
+        }
+
+        if (emptyPasswordConfirmation) {
+
+            request.getSession().setAttribute("emptyPasswordConfirmation", emptyPasswordConfirmation);
+
+        }
+
+        if (passwordsNotMatch) {
+
+            request.getSession().setAttribute("passwordsNotMatch", true);
+
+        }
 
     }
 

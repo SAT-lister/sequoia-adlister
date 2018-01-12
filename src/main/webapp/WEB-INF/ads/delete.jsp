@@ -12,6 +12,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="delete" />
     </jsp:include>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -21,7 +22,7 @@
     <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>
     <span> ${sessionScope.id}</span>
 </div>
-<div class="container">
+<div class="container" style="margin-top: 30px">
     <c:forEach var="Ad" items="${deleteAds}">
         <div class="col-sm-4">
                 <div>
@@ -34,6 +35,7 @@
     </c:forEach>
     <a class="btn btn-default"> Delete ad</a>
 </div>
+<br>
 
 </body>
 </html>

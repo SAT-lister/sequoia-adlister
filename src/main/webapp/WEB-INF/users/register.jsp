@@ -2,10 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <jsp:include page="partials/head.jsp">
+    <jsp:include page="../partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
-
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
 <% String username = request.getParameter("username");
@@ -17,7 +17,7 @@ if (username == null) username = "";
     if (request.getMethod().equals("POST"))
 
 %>
-    <jsp:include page="partials/navbar.jsp" />
+    <jsp:include page="../partials/navbar.jsp" />
     <div class="container">
         <h1>Please fill in your information.</h1>
         <form action="/register" method="post">

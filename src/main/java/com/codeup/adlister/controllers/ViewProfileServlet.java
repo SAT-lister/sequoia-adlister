@@ -35,6 +35,6 @@ public class ViewProfileServlet extends HttpServlet {
         // 3. pass those ads to the jsp
         request.getSession().setAttribute("ads", userAds);
 
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/users/profile.jsp").forward(request, response);
     }
 }

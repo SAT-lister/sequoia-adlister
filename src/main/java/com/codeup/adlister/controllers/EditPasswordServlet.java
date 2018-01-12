@@ -30,14 +30,9 @@ public class EditPasswordServlet extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("passwordConfirmation");
+        System.out.println(password);
+        System.out.println(passwordConfirmation);
 
-
-        User user = DaoFactory.getUsersDao().findById(id);
-
-        user.setPassword(password);
-        DaoFactory.getUsersDao().updatePassword(user);
-        request.getSession().setAttribute("user", user);
-        response.sendRedirect("/profile");
 
         boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean emptyPassword = password.isEmpty();
@@ -61,6 +56,11 @@ public class EditPasswordServlet extends HttpServlet {
 
         }
 
+        User user = DaoFactory.getUsersDao().findById(id);
+        user.setPassword(password);
+        DaoFactory.getUsersDao().updatePassword(user);
+        request.getSession().setAttribute("user", user);
+        response.sendRedirect("/profile");
     }
 
 

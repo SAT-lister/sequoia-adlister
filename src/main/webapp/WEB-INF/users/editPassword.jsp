@@ -38,9 +38,9 @@
 
         <!-- Confirm Password -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="confirm-password">Confirm Password</label>
+            <label class="col-md-4 control-label" for="passwordConfirmation">Confirm Password</label>
             <div class="col-md-4">
-                <input id="confirm-password" name="confirm-password" type="password" placeholder="confirm password" class="form-control input-md">
+                <input id="passwordConfirmation" name="passwordConfirmation" type="password" placeholder="confirm password" class="form-control input-md">
             </div>
         </div>
 

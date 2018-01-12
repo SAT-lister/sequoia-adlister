@@ -16,7 +16,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-<div class="profile-header">
+<div class="container">
     <h1>Delete ad</h1>
     <br>
     <a href="/profile" class="btn btn-default btn-return">Return to Profile</a>

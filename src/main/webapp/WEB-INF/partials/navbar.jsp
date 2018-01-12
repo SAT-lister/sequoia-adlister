@@ -21,7 +21,6 @@
                 <c:if test="${sessionScope.user != null}">
 
                             <li><a href="/ads/delete">Edit ads!</a></li>
-                            <li><a href="/">Edit your Profile</a></li>
 
                             <li><a href="/logout">Logout</a></li>
                 </c:if>

@@ -84,12 +84,24 @@ public class MySQLUsersDao implements Users {
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             preparedStmt.setString(1, user.getUsername());
             preparedStmt.setString(2, user.getEmail());
-//            preparedStmt.setString(3, password);
             preparedStmt.setLong(3, user.getId());
             preparedStmt.executeUpdate();
 
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user information");
+        }
+    }
+
+    public void updatePassword(User user) {
+        try {
+
+            String query = "UPDATE users SET password = ? WHERE id = ?";
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            preparedStmt.setString(1, user.getPassword());
+            preparedStmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error updating user password");
         }
     }
 

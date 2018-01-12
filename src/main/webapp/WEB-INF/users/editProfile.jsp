@@ -31,26 +31,6 @@
 
         <br>
 
-        <%--<!-- Password -->--%>
-        <%--<div class="form-group">--%>
-            <%--<label class="col-md-4 control-label" for="password">Password</label>--%>
-            <%--<div class="col-md-4">--%>
-                <%--<input id="password" name="password" type="password" placeholder="password" class="form-control input-md">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-        <%--<br>--%>
-
-        <%--<!-- Confirm Password -->--%>
-        <%--<div class="form-group">--%>
-            <%--<label class="col-md-4 control-label" for="password-confirmation">Confirm Password</label>--%>
-            <%--<div class="col-md-4">--%>
-                <%--<input id="password-confirmation" name="password-confirmation" type="password" placeholder="confirm password" class="form-control input-md">--%>
-            <%--</div>--%>
-        <%--</div>--%>
-
-        <br>
-
         <!-- Upload Button -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="upload-button">Upload</label>

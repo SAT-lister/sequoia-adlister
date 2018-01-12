@@ -4,7 +4,7 @@
     <title>Change Profile</title>
 </head>
 <body>
-<form action="/editProfile" method="POST" class="form-horizontal">
+<form action="/editPassword" method="POST" class="form-horizontal">
 
     <fieldset>
         <legend>Change your password</legend>

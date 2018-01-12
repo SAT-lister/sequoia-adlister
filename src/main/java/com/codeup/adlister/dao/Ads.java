@@ -16,5 +16,8 @@ public interface Ads {
     Ad getAd(long id);
 
     List<Ad> getAds(long id);
+
+    void deleteAd(Ad ad);
+
 }
 

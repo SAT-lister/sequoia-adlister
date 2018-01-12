@@ -5,6 +5,7 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Desserts" />
     </jsp:include>
+    <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />

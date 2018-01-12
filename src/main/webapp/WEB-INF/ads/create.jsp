@@ -30,6 +30,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
     </div>

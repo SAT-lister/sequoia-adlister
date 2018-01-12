@@ -14,3 +14,10 @@ body {
     background-color:#AA7BC3!important;
     opacity: 0.6;
 }
+
+img{
+    height:44px;
+    width:44px;
+    margin-left: auto;
+    margin-right: auto;
+}

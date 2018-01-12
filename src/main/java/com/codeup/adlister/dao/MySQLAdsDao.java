@@ -96,8 +96,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             rs.next();
 
-            createAdsFromResults(rs);
-            return extractAd(stmt.executeQuery());
+            return extractAd(rs);
 
         } catch (SQLException e) {
             throw new RuntimeException("Error finding profile", e);

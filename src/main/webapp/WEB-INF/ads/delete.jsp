@@ -10,12 +10,12 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="delete" />
+        <jsp:param name="title" value="delete"/>
     </jsp:include>
     <link rel="stylesheet" href="/CSS/main.css"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="profile-header">
     <h1>Delete ad</h1>
     <br>
@@ -23,17 +23,19 @@
     <span> ${sessionScope.id}</span>
 </div>
 <div class="container" style="margin-top: 30px">
-    <c:forEach var="Ad" items="${deleteAds}">
-        <div class="col-sm-4">
+    <form action="/ads/delete" method="post">
+        <c:forEach var="Ad" items="${deleteAds}">
+            <div class="col-sm-4">
                 <div>
-                    <input type="radio">
+                    <input type="radio" name="id"  value="${Ad.id}">
                     <h4>${Ad.title}</h4>
                     <p>${Ad.description}</p>
 
                 </div>
-        </div>
-    </c:forEach>
-    <a class="btn btn-default"> Delete ad</a>
+            </div>
+        </c:forEach>
+        <button class="btn btn-default" type="submit"> Delete ad</button>
+    </form>
 </div>
 <br>
 

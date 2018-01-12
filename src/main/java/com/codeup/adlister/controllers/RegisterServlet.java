@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/users/register.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -24,10 +24,10 @@ public class RegisterServlet extends HttpServlet {
 
         User existingUser = DaoFactory.getUsersDao().findByUsername(username);
         User existingEmail = DaoFactory.getUsersDao().findByEmail(email);
-        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean wrongEmail = (!email.contains("@"));
         boolean emptyUsername = username.isEmpty();
         boolean emptyEmail = email.isEmpty();
+        boolean passwordsNotMatch = (!password.equals(passwordConfirmation));
         boolean emptyPassword = password.isEmpty();
         boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
 

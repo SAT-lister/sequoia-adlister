@@ -17,7 +17,7 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <h3>Your current email is: ${sessionScope.user.email}</h3>
-        <a href="/editProfile?id=${user.id}">Edit Your Profile</a> <a href="/editPassword?id=${user.id}"></a>
+        <a href="/editProfile?id=${user.id}">Edit Your Profile</a> <a href="/editPassword?id=${user.id}">Change your Password</a>
         <h2>Here are your current ads.</h2>
         <c:forEach var="ad" items="${ads}">
             <br>

@@ -83,7 +83,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error retrieving searched ads.", e);
         }
     }
 
@@ -95,11 +95,10 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             rs.next();
-
             return extractAd(rs);
 
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding profile", e);
+            throw new RuntimeException("Error finding an ad", e);
         }
     }
 
@@ -111,7 +110,7 @@ public class MySQLAdsDao implements Ads {
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding profile", e);
+            throw new RuntimeException("Error finding a list of ads", e);
         }
     }
 

@@ -17,11 +17,11 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <h3>Your current email is: ${sessionScope.user.email}</h3>
-        <a href="/editProfile?id=${user.id}">Edit Your Profile</a>
+        <a href="/editProfile?id=${user.id}">Edit Your Profile</a> <a href="/editPassword?id=${user.id}"></a>
         <h2>Here are your current ads.</h2>
         <c:forEach var="ad" items="${ads}">
             <br>
-            <td>Ad Title: ${ad.title}</td></br>
+            <a href="/ads/view?id=${ad.id}"><td>Ad Title: ${ad.title}</td></a></br>
             <td>Ad Description: ${ad.description}</td></br>
             <td>Ad Categories: ${ad.category}</td></br>
             </tr>

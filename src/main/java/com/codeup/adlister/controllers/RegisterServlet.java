@@ -31,11 +31,6 @@ public class RegisterServlet extends HttpServlet {
         boolean emptyPassword = password.isEmpty();
         boolean emptyPasswordConfirmation = passwordConfirmation.isEmpty();
 
-        // validate input
-//        boolean inputHasErrors = emptyUsername
-//            || emptyEmail
-//            || emptyPassword
-//            || emptyPasswordConfirmation;
 
             if (emptyUsername) {
 

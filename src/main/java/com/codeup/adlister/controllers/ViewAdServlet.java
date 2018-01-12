@@ -12,15 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "controllers.ViewAdsServlet", urlPatterns = "/ads/view")
-public class ViewAdServlet extends HttpServlet{
+@WebServlet(name = "controllers.ViewAdServlet", urlPatterns = "/ads/view")
+public class ViewAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if (request.getSession().getAttribute("id") != null) {
 
             Long id = Long.parseLong(request.getParameter("id"));
-            Ad ad = DaoFactory.getAdsDao().getAd(id);
-            request.setAttribute("ad", ad);
 
-        request.getRequestDispatcher("/WEB-INF/ads/view.jsp").forward(request, response);
+            request.setAttribute("ad", DaoFactory.getAdsDao().getAd(id));
+
+            request.getRequestDispatcher("/WEB-INF/ads/view.jsp").forward(request, response);
+        }
     }
-}

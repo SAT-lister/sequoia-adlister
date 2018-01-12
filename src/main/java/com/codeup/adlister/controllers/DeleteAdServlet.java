@@ -21,13 +21,12 @@ public class DeleteAdServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") != null) {
             response.sendRedirect("/profile");
             return;
-        } else {
-            response.sendRedirect("/index");
         }
 
         long id = Long.parseLong(request.getParameter("id"));
         Ad ad = DaoFactory.getAdsDao().getAd(id);
         DaoFactory.getAdsDao().deleteAd(ad);
+            response.sendRedirect("/index");
 
 
     }

@@ -20,7 +20,7 @@
         <h2>Here are your current ads.</h2>
         <c:forEach var="ad" items="${ads}">
             <br>
-            <td>Ad Title: ${ad.title}</td></br>
+            <a href="/ads/view?id=${ad.id}"><td>Ad Title: ${ad.title}</td></a></br>
             <td>Ad Description: ${ad.description}</td></br>
             <td>Ad Categories: ${ad.category}</td></br>
             </tr>
